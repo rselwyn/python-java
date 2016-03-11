@@ -1,5 +1,7 @@
 package python;
 
+import java.util.Scanner;
+
 public final class PythonWrapper {
 	
 	/**
@@ -120,6 +122,45 @@ public final class PythonWrapper {
 		catch (Exception e) {
 			throw new ValueError("double", "float");
 		}
+	}
+	
+	/**
+	 * Convert a string to a float
+	 * @param param: the string to convert
+	 * @return the floated string
+	 * @throws ValueError if there is an error
+	 */
+	public static final float _float(String param) {
+		try{
+			return Float.parseFloat(param);
+		}
+		catch (Exception e) {
+			throw new ValueError("String", "float");
+		}
+	}
+	
+	/**
+	 * Get input from System.in
+	 * @param prompt: the prompt to give users before they enter
+	 * @return the input
+	 */
+	public static final String input(String prompt) {
+		print(prompt);
+		Scanner in = new Scanner(System.in);
+		String data = in.nextLine();
+		in.close();
+		return data;
+	}
+	
+	/**
+	 * Unprompted input from System.in
+	 * @return the input
+	 */
+	public static final String input() {
+		Scanner in = new Scanner(System.in);
+		String data = in.nextLine();
+		in.close();
+		return data;
 	}
 	
 	
