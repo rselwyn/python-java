@@ -163,6 +163,34 @@ public final class PythonWrapper {
 		return data;
 	}
 	
+	/**
+	 * Similar to the python exit() method. 
+	 */
+	public static final void exit() {
+		System.exit(0);
+	}
+	
+	/**
+	 * Convert an object to string
+	 * @param o: what to convert to a string
+	 * @return converted to a string
+	 */
+	public static final String str(Object o) {
+		return o.toString();
+	}
+	
+	/**
+	 * Similar to the python construction "foo in bar"
+	 * @param o
+	 * @param arr
+	 * @return
+	 */
+	public static final boolean in(Object o, Object[] arr) {
+		for (Object iter : arr) {
+			if (iter.equals(o)) return true;
+		}
+		return false;
+	}
 	
 	/**
 	 * The python-like runtime exception
